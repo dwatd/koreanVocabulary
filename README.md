@@ -1,1 +1,3 @@
 # koreanVocabulary
+
+!!! NOT FINISHED !!!
