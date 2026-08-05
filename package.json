@@ -1,0 +1,24 @@
+{
+  "name": "koreanvocabulary",
+  "version": "1.0.0",
+  "description": "!!! NOT FINISHED !!!",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwatd/koreanVocabulary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwatd/koreanVocabulary/issues"
+  },
+  "homepage": "https://github.com/dwatd/koreanVocabulary#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.1",
+    "handlebars": "^4.7.9"
+  }
+}

@@ -1,0 +1,46 @@
+<h1>Korean dictionary maker</h1>
+
+<p>Enter your text:</p>
+
+
+<form action="/analyze" method="POST">
+    <textarea name="koreanText" rows="5" cols="50" placeholder="첫 수업..."></textarea>
+    <br>
+    <button type="submit">Analyse</button>
+</form>
+
+<hr>
+
+<h2>Dictionary:</h2>
+
+{{#if error}}
+    <p style="color: red;">{{error}}</p>
+{{/if}}
+
+{{#if words}}
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Translation</th>
+                <th>POS</th>
+                <th>TOPIK</th>
+                <th>Frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each words}}
+                <tr>
+                    <td><strong>{{this.word}}</strong></td>
+                    <td>{{this.translation}}</td>
+                    <td>{{this.part_of_speech}}</td>
+                    <td>{{this.topik_level}}</td>
+                    <td>{{this.frequency}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>Enter the text above to see the dictionary.</p>
+{{/if}}
+
