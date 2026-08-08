@@ -1,0 +1,243 @@
+:root {
+    --bg-color: #FCF7DF; /* Cream */
+    --text-color: #3E3630; /* Dark Brown */
+    --accent-blue: #C7D3DB; /* Light Blue */
+    --accent-taupe: #A79A8A; /* Taupe */
+}
+
+body {
+    /* Bullet Journal dot background */
+    background-color: var(--bg-color);
+    background-image: radial-gradient(var(--accent-taupe) 1px, transparent 1px);
+    background-size: 25px 25px; /* dot's size */
+    color: var(--text-color);
+    font-family: 'Gowun Dodum', sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.scrapbook-layout {
+    width: 100%;
+    max-width: 850px;
+    position: relative;
+}
+
+/* Header */
+.header-section {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title-wrapper h1 {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 4rem;
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: -2px;
+}
+
+.decor-img {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 120px;
+    transform: rotate(-10deg);
+}
+
+/* Note */
+.input-section {
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    border: 2.5px solid var(--text-color);
+    box-shadow: 8px 8px 0px var(--accent-taupe);
+    border-radius: 4px;
+    margin-bottom: 50px;
+}
+
+/* Tape style*/
+/* .washi-tape-img { 
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg);
+    width: 130px; 
+    height: auto;
+    z-index: 10;
+    pointer-events: none; 
+    filter: drop-shadow(3px 3px 0px var(--accent-blue));
+}  */
+
+.fish-sticker {
+    position: absolute;
+    top: -25px;     
+    right: 30px;  
+    width: 55px;  
+    transform: rotate(15deg); 
+    z-index: 10;   
+    filter: drop-shadow(2px 2px 0px var(--accent-blue)); 
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    border: none;
+    resize: vertical;
+    font-size: 1.1rem;
+    font-family: 'Gowun Dodum', sans-serif;
+    color: var(--text-color);
+    outline: none;
+    background: transparent;
+    line-height: 1.8;
+    /* Lines under text */
+    background-image: repeating-linear-gradient(transparent, transparent 31px, var(--accent-blue) 32px);
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    background-color: var(--accent-blue);
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 30px;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--text-color);
+    transition: all 0.1s;
+    float: right;
+}
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--text-color);
+}
+
+/* Flashcards */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--text-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.flashcard {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 180px;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard.is-flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;   
+    backface-visibility: hidden;
+
+    border: 2px solid var(--text-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flashcard-front {
+    background-color: white;
+    box-shadow: 5px 5px 0px var(--accent-blue);
+}
+
+.flashcard-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 0px var(--accent-blue)
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.content-center {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pos-tag {
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.topik-tag {
+    color: var(--accent-taupe);
+}
+
+.korean-word {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.translation {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.freq {
+    font-size: 0.85rem;
+    border-top: 1px dashed var(--accent-taupe);
+    padding-top: 10px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent-taupe);
+    font-size: 1.5rem;
+}
+

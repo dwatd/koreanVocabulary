@@ -1,46 +1,65 @@
-<h1>Korean dictionary maker</h1>
+<div class="scrapbook-layout">
+    
+    <header class="header-section">
+        <img src="/images/penguin.png" alt="decor" class="decor-img top-left">
+        
+        <div class="title-wrapper">
+            <h1>나의 사전</h1>
+        </div>
+    </header>
 
-<p>Enter your text:</p>
+    <section class="input-section">
+        <form action="/analyze" method="POST">
+            {{!-- <img src="/images/tape2.png" alt="washi tape" class="washi-tape-img"> --}}
+            <img src="/images/fish2.png" alt="decor" class="fish-sticker">
 
+            <textarea name="koreanText" placeholder="Write your text here..."></textarea>
+            
+            <button type="submit">Get vocabulary ✦</button>
+        </form>
+    </section>
 
-<form action="/analyze" method="POST">
-    <textarea name="koreanText" rows="5" cols="50" placeholder="첫 수업..."></textarea>
-    <br>
-    <button type="submit">Analyse</button>
-</form>
+    {{#if error}}
+        <div class="error-sticker">{{error}}</div>
+    {{/if}}
 
-<hr>
+    {{#if words}}
+        <section class="results-section">
+            <h2 class="section-title">New Vocabulary</h2>
+            
+            <div class="flashcards-grid">
+                {{#each words}}
+                    <div class="flashcard" onclick="this.classList.toggle('is-flipped')">
+                        <div class="flashcard-inner">
+                            {{!-- Front --}}
+                            <div class="flashcard-front">
+                                <div class="card-top">
+                                    <span class="pos-tag">{{this.part_of_speech}}</span>
+                                    <span class="topik-tag">TOPIK: {{this.topik_level}}</span>
+                                </div>
+                                <div class="content-center">
+                                    <div class="korean-word">{{this.word}}</div>
+                                </div>
+                            </div>
 
-<h2>Dictionary:</h2>
+                            {{!-- Back --}}
+                            <div class="flashcard-back">
+                                <div class="content-center">
+                                    <div class="translation">{{this.translation}}</div>
+                                </div>
+                                <div class="freq">Seen: {{this.frequency}}x</div>
+                            </div>
 
-{{#if error}}
-    <p style="color: red;">{{error}}</p>
-{{/if}}
+                        </div>
+                        
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+    {{else}}
+        <div class="empty-state">
+            <p>Your new words will appear here...</p>
+        </div>
+    {{/if}}
 
-{{#if words}}
-    <table border="1" cellpadding="10" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Word</th>
-                <th>Translation</th>
-                <th>POS</th>
-                <th>TOPIK</th>
-                <th>Frequency</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each words}}
-                <tr>
-                    <td><strong>{{this.word}}</strong></td>
-                    <td>{{this.translation}}</td>
-                    <td>{{this.part_of_speech}}</td>
-                    <td>{{this.topik_level}}</td>
-                    <td>{{this.frequency}}</td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
-{{else}}
-    <p>Enter the text above to see the dictionary.</p>
-{{/if}}
-
+</div>
