@@ -1,3 +1,3 @@
-# koreanVocabulary
+# korean notes
 
-!!! NOT FINISHED !!!
+make flashcards from text
